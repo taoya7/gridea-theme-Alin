@@ -1,0 +1,31 @@
+{
+  "name": "Alin",
+  "version": "1.0.0",
+  "author": "桃阿",
+  "customConfig": [
+    {
+      "name": "iSign",
+      "label": "请输入你的签名吧",
+      "group": "个性签名",
+      "value": "",
+      "type": "input",
+      "note": "编写签名,彰显你的独特态度."
+    },
+    {
+      "name": "recordNum",
+      "label": "备案许可号",
+      "group": "版权声明",
+      "value": "",
+      "type": "input",
+      "note": "晋ICP备18004820"
+    },
+    {
+      "name": "copyright",
+      "label": "Copyright",
+      "group": "版权声明",
+      "value": "",
+      "type": "input",
+      "note": "©2019"
+    }
+  ]
+}

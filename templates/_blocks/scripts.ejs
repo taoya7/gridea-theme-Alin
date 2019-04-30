@@ -1,0 +1,98 @@
+<%- include('mFooter') %>
+
+
+
+<script src="<%= themeConfig.domain %>/media/dict/js/aos.js"></script>
+
+<!--Self-->
+<script>
+    $(window).on('load',function(){ 
+  　　$('.tilt').fadeOut(1000);
+　　}); 
+</script>
+
+
+<script type="application/javascript">
+
+/*动画初始化*/
+AOS.init(
+  {
+  offset: 200,
+  duration: 600,
+  easing: 'ease-in-sine',
+  delay: 100,
+  }
+);
+
+/*代码高亮*/
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible:false,
+    alin:{
+      like:[
+          {
+            "alt":"我的博客",
+            "aim":"http://www.itaolaity.com/index.php",
+            "src":"http://itaolaity.com/20190429220545.png"
+          },
+          {
+            "alt":"GitHub",
+            "aim":"https://github.com/taoya7",
+            "src":"http://itaolaity.com/20190429220612.png"
+          },
+          {
+            "alt":"Email",
+            "aim":"mailto:569781231@qq.com",
+            "src":"http://itaolaity.com/20190429220636.png"
+          }
+      ]
+    }
+  }
+});
+
+</script>
+
+
+
+<% if (typeof commentSetting !== 'undefined' && commentSetting.showComment) { %>
+  
+  <% if (commentSetting.commentPlatform === 'gitalk') { %>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '<%= commentSetting.gitalkSetting.clientId %>',
+        clientSecret: '<%= commentSetting.gitalkSetting.clientSecret %>',
+        repo: '<%= commentSetting.gitalkSetting.repository %>',
+        owner: '<%= commentSetting.gitalkSetting.owner %>',
+        admin: ['<%= commentSetting.gitalkSetting.owner %>'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  <% } %>
+
+  <% if (commentSetting.commentPlatform === 'disqus') { %>
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: '<%= commentSetting.disqusSetting.shortname %>',
+      apikey: '<%= commentSetting.disqusSetting.apikey %>',
+    }
+    if ('<%= commentSetting.disqusSetting.api %>') {
+      options.api = '<%= commentSetting.disqusSetting.api %>'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  <% } %>
+
+<% } %>
+

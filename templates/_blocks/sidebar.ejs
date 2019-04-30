@@ -1,0 +1,59 @@
+<div class="sidebar" :class="{ 'full-height': menuVisible }">
+
+  <div class="overlay"></div>
+  <div class="top-container" data-aos="fade-right">
+    <!--头像-->
+    <div class="top-header-container">
+      <a class="site-title-container" href="<%= themeConfig.domain %>">
+        <img src="<%= themeConfig.domain %>/images/avatar.png?v=<%= site.utils.now %>" class="site-logo">
+      </a>
+      <h1 class="site-title">
+            <%= themeConfig.siteName %>
+            <p><%=  site.customConfig.iSign %></p>
+        </h1>
+    </div>
+    <!--导航-->
+    <div class="top-header-nav">
+
+
+      <% menus.forEach(function(menu) { %>
+        <% if (menu.openType === 'External') { %>
+          <a href="<%= menu.link %>" class="site-nav" target="_blank">
+            <%= menu.name %>
+          </a>
+        <% } else { %>
+          <a href="<%= menu.link %>" class="site-nav">
+            <%= menu.name %>
+          </a>
+        <% } %>
+      <% }); %>
+    </div>
+    <div class="icons">
+        <ul>
+          <li v-for="(le,index) in alin.like">
+            <a :href="le.aim" :alt="le.alt">
+              <img :src="le.src" />
+            </a>
+          </li>
+        </ul>
+    </div> 
+
+  </div>
+
+
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+      <div class="site-footer">
+          <%- themeConfig.footerInfo %>
+      </div>
+      <div class="site-description">
+          <p><%= site.customConfig.copyright%><a href="#"><%- themeConfig.siteDescription %></a></p>
+          <p>
+            <%= site.customConfig.recordNum%>
+            <span>&nbsp;</span>
+            Powered by <a href="https://gridea.dev">Gridea</a>
+            <span>•</span>Theme <a href="http://www.itaolaity.com/">Alin</a>
+          </p>
+      </div>
+  </div>
+</div>
+

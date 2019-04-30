@@ -1,0 +1,94 @@
+<meta charset="utf-8" >
+
+<title><%= siteTitle %></title>
+<meta name="description" content="<%= themeConfig.siteDescription %>">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="<%= themeConfig.domain %>/favicon.ico?v=<%= site.utils.now %>">
+<!--字体-->
+<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Libre+Barcode+39" rel="stylesheet">
+<!--主要CSS-->
+<link rel="stylesheet" href="<%= themeConfig.domain %>/styles/main.css">
+<style type="text/css">
+      .tilt{
+        margin: 0;
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+        background: #49beb7;
+        background: linear-gradient(to top left, #4CB8C4 -40%, #2196F3);
+        position:fixed;
+        top:0;
+        left:0;
+        z-index: 999 !important;
+      }
+      .container {
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 250px;
+        height: 250px;
+        margin: auto;
+      }
+
+      .part {
+        width: 250px;
+        position: absolute;
+      }
+
+      .svgpath {
+        fill: rgba(145,220,90,0);
+        stroke: aqua;
+        stroke-width: 1.5px;
+        stroke-dasharray: 1000;
+        stroke-linecap: round;
+        z-index: 2;
+      }
+
+      .svgbg {
+        fill: rgba(255,255,255,0.2);
+        z-index: 1;
+       }
+
+      #playload {
+        animation: dash 2.5s reverse ease-in-out infinite;
+      }
+
+      @keyframes dash {
+        to {
+          stroke-dashoffset: 2000;
+        }
+      }</style>
+
+<% if (typeof commentSetting !== 'undefined' && commentSetting.showComment) { %>
+  <% if (commentSetting.commentPlatform === 'gitalk') { %>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  <% } %>
+
+  <% if (commentSetting.commentPlatform === 'disqus') { %>
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  <% } %>
+<% } %>
+
+
+<script src="<%= themeConfig.domain %>/media/dict/js/Vue.js"></script>
+<script src="<%= themeConfig.domain %>/media/dict/js/JQuery.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="<%= themeConfig.domain %>/media/dict/css/aos.css" />
+
+
+
+<% if (site.customConfig.ga) { %>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<%= site.customConfig.ga %>"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '<%= site.customConfig.ga %>');
+
+</script>
+<% } %>
