@@ -65,5 +65,7 @@ like对象里的alt,aim,src 分别代表了提示信息，目标地址，图片�
 
 当然。需要大家宝贵的体验与意见。
 
+[我的博客](http://www.itaolaity.com)
+
 
 
